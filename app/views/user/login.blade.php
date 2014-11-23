@@ -42,6 +42,7 @@
 			<button type="button" class="btn btn-info" onclick="LoadAjax('{{ csrf_token() }}','{{ route('login.ajax')}}','post','p1','p2','p3','p4','#pp','#ll')" id="ll" > Click </button>
 			<div id="pp">ddd</div>
 			test
+			
 		</div>		
 {{ Config::get('app.sitename') }}
 		<div class="form-group">{{ Form::submit(Lang::get('general.enter'), array('class' => 'btn btn-primary')) }}</div>

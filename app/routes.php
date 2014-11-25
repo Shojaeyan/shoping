@@ -11,15 +11,32 @@
 |
 */
 
+////Admin Routes
+
+		Route::get('admin/dashboard', array('as' => 'admin.dashboard','uses' => 'AdminController@showDashboard'));
+
 Route::get('/', function()
 {
 	return View::make('pages.home');
 	
 });
-Route::get('login', array('as' => 'login','uses' => 'UserController@showLogin'));
-Route::post('login', array('uses' => 'UserController@doLogin'));
-Route::get('logout', array('as' => 'logout', 'uses' => 'UserController@doLogout'));
-Route::get('register', array('as' => 'register', 'uses' => 'UserController@showRegister'));
-Route::post('register', array('uses' => 'UserController@doRegister'));
+//Route::get('/{user}', array('as' => 'user.show','uses' => 'UserController@showUser'));
+
+Route::get('user/login', array('as' => 'user.login','uses' => 'UserController@showLogin'));
+Route::post('user/login', array('uses' => 'UserController@doLogin'));
+Route::get('user/logout', array('as' => 'user.logout', 'uses' => 'UserController@doLogout'));
+Route::get('user/register', array('as' => 'user.register', 'uses' => 'UserController@showRegister'));
+Route::post('user/register', array('uses' => 'UserController@doRegister'));
+
+Route::get('user/update', array('as' => 'user.update', 'uses' => 'UserController@showUpdate'));
+Route::post('user/update', array('as' => 'user.update', 'uses' => 'UserController@doUpdate'));
+
+Route::get('user/changepassword', array('as' => 'user.changepassword', 'uses' => 'UserController@showPassword'));
+Route::post('user/changepassword', array('as' => 'user.changepassword', 'uses' => 'UserController@doPassword'));
+
 
 Route::post('login/sample',array('as' => 'login.ajax','uses' => 'UserController@doAjax' ));
+
+
+
+

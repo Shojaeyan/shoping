@@ -41,22 +41,21 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown " id="fat-menu">
                 <a aria-expanded="true" role="button" aria-haspopup="true" data-toggle="dropdown" class="dropdown-toggle" href="#" id="drop3">
-                  {{ Auth::user()->name }}
+                  {{ Auth::user()->name .' '.Auth::user()->family.' '.Lang::get('general.welcome') }}
                   <span class="caret"></span>
                 </a>
                 <ul aria-labelledby="drop3" id="user-menu" role="menu" class="dropdown-menu">
-                  <li role="presentation"><a href="https://twitter.com/fat" tabindex="-1" role="menuitem">Action</a></li>
-                  <li role="presentation"><a href="https://twitter.com/fat" tabindex="-1" role="menuitem">Another action</a></li>
-                  <li role="presentation"><a href="https://twitter.com/fat" tabindex="-1" role="menuitem">Something else here</a></li>
+                  <li role="presentation"><a href="{{route('user.changepassword') }}" role="menuitem"> {{ Lang::get('general.update') }} {{ Lang::get('general.password') }}</a></li>
+                  <li role="presentation"><a href="{{route('user.update') }}" role="menuitem"> {{ Lang::get('general.update') }} {{ Lang::get('general.profile') }}</a></li>
                   <li class="divider" role="presentation"></li>
-                  <li role="presentation"><a href="{{ route('logout') }}" tabindex="-1" role="menuitem">{{ Lang::get('general.logout') }}</a></li>
+                  <li role="presentation"><a href="{{ route('user.logout') }}" role="menuitem">{{ Lang::get('general.logout') }}</a></li>
                 </ul>
               </li>
             </ul>           
 
           @elseif (!Auth::check())
-          <a role="button" class="btn btn-default navbar-btn" href="{{ route('login') }}"> <span aria-hidden="true" class="glyphicon glyphicon-lock"></span> {{ Lang::get('messages.loginText') }} </a>
-          <a role="button" class="btn btn-default navbar-btn" href="{{ route('register') }}"><span aria-hidden="true" class="glyphicon glyphicon-user"></span> {{ Lang::get('general.register') }} </a>
+          <a role="button" class="btn btn-default navbar-btn" href="{{ route('user.login') }}"> <span aria-hidden="true" class="glyphicon glyphicon-lock"></span> {{ Lang::get('messages.loginText') }} </a>
+          <a role="button" class="btn btn-default navbar-btn" href="{{ route('user.register') }}"><span aria-hidden="true" class="glyphicon glyphicon-user"></span> {{ Lang::get('general.register') }} </a>
           @endif
 
         </div>
@@ -73,6 +72,7 @@
 
     {{ HTML::script('js/jquery-1.10.2.min.js') }}
     {{ HTML::script('js/bootstrap.js') }}
+    {{ HTML::script('js/bootstrap-tooltip.js') }}
     {{ HTML::script('js/app.js') }}
     {{ HTML::script('js/animate.js') }}
 

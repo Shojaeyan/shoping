@@ -7,7 +7,7 @@
 	<div class="page-header" style="border-color:#555">
 			<h1><span aria-hidden="true" class="glyphicon glyphicon-record"></span> {{Lang::get('general.login')}}</h1>
 		</div>
-	{{ Form::open(array('url'=>'login', 'class'=>'form-signin')) }}
+	{{ Form::open(array('url'=>'user/login', 'class'=>'form-signin')) }}
 		<div class="form-group">
 			@if(count($errors)>0)
 			<ul class="alert alert-danger" role="alert">
@@ -42,6 +42,8 @@
 			<button type="button" class="btn btn-info" onclick="LoadAjax('{{ csrf_token() }}','{{ route('login.ajax')}}','post','p1','p2','p3','p4','#pp','#ll')" id="ll" > Click </button>
 			<div id="pp">ddd</div>
 			test
+
+			?
 			
 		</div>		
 {{ Config::get('app.sitename') }}

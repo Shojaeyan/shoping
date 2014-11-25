@@ -22,3 +22,8 @@ function LoadAjax(token,url_,type,p1,p2,p3,p4,p,lock)
             }
         });		
 	}
+
+$(function () {  /// Toltip
+$('[data-toggle="tooltip"]').tooltip()
+})
+

@@ -20,7 +20,7 @@ Route::get('/', function()
 	return View::make('pages.home');
 	
 });
-//Route::get('/{user}', array('as' => 'user.show','uses' => 'UserController@showUser'));
+Route::get('/{user}', array('as' => 'user.show','uses' => 'UserController@showUser'));
 
 Route::get('user/login', array('as' => 'user.login','uses' => 'UserController@showLogin'));
 Route::post('user/login', array('uses' => 'UserController@doLogin'));

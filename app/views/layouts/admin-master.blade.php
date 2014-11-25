@@ -35,7 +35,7 @@
 <div id="wrapper">
 
         <!-- Navigation -->
-        <nav style="margin-bottom: 0;position:fixed;width:100%;" role="navigation" class="navbar navbar-default navbar-static-top">
+        <nav style="margin-bottom: 0;postion:" role="navigation" class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">
                 <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
                     <span class="sr-only">Toggle navigation</span>
@@ -43,27 +43,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-          @if(Auth::check())
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown " id="fat-menu">
-                <a aria-expanded="true" role="button" aria-haspopup="true" data-toggle="dropdown" class="dropdown-toggle" href="#" id="drop3">
-                  {{ Auth::user()->name .' '.Auth::user()->family.' '.Lang::get('general.welcome') }}
-                  <span class="caret"></span>
-                </a>
-                <ul aria-labelledby="drop3" id="user-menu" role="menu" class="dropdown-menu">
-                  <li role="presentation"><a href="{{route('user.changepassword') }}" role="menuitem"> {{ Lang::get('general.update') }} {{ Lang::get('general.password') }}</a></li>
-                  <li role="presentation"><a href="{{route('user.update') }}" role="menuitem"> {{ Lang::get('general.update') }} {{ Lang::get('general.profile') }}</a></li>
-                  <li class="divider" role="presentation"></li>
-                  <li role="presentation"><a href="{{ route('user.logout') }}" role="menuitem">{{ Lang::get('general.logout') }}</a></li>
-                </ul>
-              </li>
-            </ul>           
 
-          @endif
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
+                   
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -254,21 +239,20 @@
                     <!-- /.dropdown-alerts -->
                 </li>
                 <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
+                     @if(Auth::check())
+              <li class="dropdown " id="fat-menu">
+                <a aria-expanded="true" role="button" aria-haspopup="true" data-toggle="dropdown" class="dropdown-toggle" href="#" id="drop3">
+                 <i class="fa fa-user fa-fw"></i>  
+                  <span class="caret"></span>
+                </a>
+                <ul aria-labelledby="drop3" id="user-menu" role="menu" class="dropdown-menu">
+                  <li role="presentation"><a href="{{route('user.changepassword') }}" role="menuitem"><i class="fa fa-gear fa-fw"></i> {{ Lang::get('general.update') }} {{ Lang::get('general.password') }}</a></li>
+                  <li role="presentation"><a href="{{route('user.update') }}" role="menuitem"><i class="fa fa-user fa-fw"></i> {{ Lang::get('general.update') }} {{ Lang::get('general.profile') }}</a></li>
+                  <li class="divider" role="presentation"></li>
+                  <li role="presentation"><a href="{{ route('user.logout') }}" role="menuitem"><i class="fa fa-sign-out fa-fw"></i> {{ Lang::get('general.logout') }}</a></li>
+                </ul>
+              </li>
+          @endif
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
@@ -288,47 +272,20 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
+                            <a href=" {{ route('admin.dashboard') }} " class="active"><i class='fa fa-dashboard fa-fw'></i> {{ Lang::get('general.dashboard') }} </a>                        </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> {{ Lang::get('general.setting') }} <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
-                                    <a href="flot.html">Flot Charts</a>
+                                    <a href="flot.html">{{ Lang::get('general.site') }}</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Morris.js Charts</a>
+                                    <a href="morris.html">{{ Lang::get('general.sms') }}</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grid</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
@@ -394,12 +351,14 @@
 }
 </style>
 
+    {{ HTML::script('js/jquery-1.10.2.min.js') }}
+    {{ HTML::script('js/bootstrap.js') }}
+    {{ HTML::script('js/bootstrap-tooltip.js') }}
+    {{ HTML::script('js/app.js') }}
+    {{ HTML::script('js/animate.js') }}
     <!-- Metis Menu Plugin JavaScript -->
     {{ HTML::script('js/plugins/metisMenu/metisMenu.min.js') }}
     <!-- Morris Charts JavaScript -->
-    {{ HTML::script('js/plugins/morris/raphael.min.js') }}
-    {{ HTML::script('js/plugins/morris/morris.min.js') }}
-    {{ HTML::script('js/plugins/morris/morris-data.js') }}
     <!-- Custom Theme JavaScript -->
     {{ HTML::script('js/sb-admin-2.js') }}
 
@@ -407,11 +366,7 @@
 
 
 
-    {{ HTML::script('js/jquery-1.10.2.min.js') }}
-    {{ HTML::script('js/bootstrap.js') }}
-    {{ HTML::script('js/bootstrap-tooltip.js') }}
-    {{ HTML::script('js/app.js') }}
-    {{ HTML::script('js/animate.js') }}
+
 
 </body>
 </html>

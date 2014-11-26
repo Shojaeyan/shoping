@@ -6,80 +6,25 @@ class UserController extends BaseController {
 	{
 		if(Auth::check())
 		{
-			return View::make('user.edit');
+			return View::make('user.edit')->width('action','user');
 		}else{
 			return Redirect::to("user/login")->with("flash_error",Lang::get('messages.loginText'));
 		}
 	}
 	
-	public function doUpdate()
-	{
-		if(Auth::check())
-		{
-			$inputs = Input::all();
-			$rules = array(
-				'name' => 'required|min:2|max:50',
-				'family' => 'required|min:2|max:50',
-				);
-			$validator = Validator::make($inputs,$rules);
-			if($validator->passes())
-				{
-					$name = Input::get('name');
-					$family = Input::get('family');
-
-					$user =  User::find(Auth::id());
-					$user->name = $name;
-					$user->family = $family;
-					if($user->save()) 
-					return Redirect::to("user/update")->with("flash_success",Lang::get('messages.success'));
-				}else return Redirect::to("user/update")->withErrors($validator)->withInput();
-
-		}else
-			return Redirect::to("user/login")->with("flash_error",Lang::get('messages.loginTime'));
-	}
 
 	public function showPassword($value='')
 	{
-		return View::make('user.changepassword')->with('flash_success',Jdf::jdate('Y-m-d'));
-	}
-	public function doPassword()
-	{
-		if(Auth::check())
-		{
-			$inputs = Input::all();
-			$rules = array(
-				'oldpassword' => 'required|min:2|max:50',
-				'password' => 'required|min:2|max:50',
-				'repassword' => 'required|min:2|max:50',
-				);
-			$validator = Validator::make($inputs,$rules);
-			if($validator->passes())
-				{
-					$password = Input::get('password');
-					$repassword = Input::get('repassword');
-				if($password!=$repassword)
-				return Redirect::to('user/changepassword')->with('flash_error','Password')->withInput();
-				else
-					{					
-						$user =  User::find(Auth::id());
-						if(Hash::make($password)==$user->password)
-						{
-							$کuser->password = Hash::make($password);
-							if($user->save()) 
-							return Redirect::to("user/changepassword")->with("flash_success",Lang::get('messages.success'));	
-						}else return Redirect::to("user/changepassword")->with("flash_error",Lang::get('messages.oldpasswordfailed'));
-						
-						
-					}
-				}else return Redirect::to("user/changepassword")->withErrors($validator)->withInput();	
-
-		}else
-			return Redirect::to("user/login")->with("flash_error",Lang::get('messages.loginTime'));
+		return View::make('user.changepassword')->with('action','user');
 	}
 
 	public function showLogin()
 	{
  	    //return View::make('user.login');
+ 	   if (Request::ajax()) 
+ 	   {
+ 	   	return 'ss';
+ 	   } 
  	   return View::make("user.login");
 	}
 	public function showRegister(){

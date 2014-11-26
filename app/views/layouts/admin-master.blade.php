@@ -239,15 +239,15 @@
                     <!-- /.dropdown-alerts -->
                 </li>
                 <!-- /.dropdown -->
-                     @if(Auth::check())
+            @if(Auth::check())
               <li class="dropdown " id="fat-menu">
                 <a aria-expanded="true" role="button" aria-haspopup="true" data-toggle="dropdown" class="dropdown-toggle" href="#" id="drop3">
                  <i class="fa fa-user fa-fw"></i>  
                   <span class="caret"></span>
                 </a>
                 <ul aria-labelledby="drop3" id="user-menu" role="menu" class="dropdown-menu">
-                  <li role="presentation"><a href="{{route('user.changepassword') }}" role="menuitem"><i class="fa fa-gear fa-fw"></i> {{ Lang::get('general.update') }} {{ Lang::get('general.password') }}</a></li>
-                  <li role="presentation"><a href="{{route('user.update') }}" role="menuitem"><i class="fa fa-user fa-fw"></i> {{ Lang::get('general.update') }} {{ Lang::get('general.profile') }}</a></li>
+                  <li role="presentation"><a href="{{route('admin.changepassword') }}" role="menuitem"><i class="fa fa-gear fa-fw"></i> {{ Lang::get('general.update') }} {{ Lang::get('general.password') }}</a></li>
+                  <li role="presentation"><a href="{{route('admin.update') }}" role="menuitem"><i class="fa fa-user fa-fw"></i> {{ Lang::get('general.update') }} {{ Lang::get('general.profile') }}</a></li>
                   <li class="divider" role="presentation"></li>
                   <li role="presentation"><a href="{{ route('user.logout') }}" role="menuitem"><i class="fa fa-sign-out fa-fw"></i> {{ Lang::get('general.logout') }}</a></li>
                 </ul>
@@ -335,7 +335,7 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-         <div style="padding-top:50px;"> @yield('content')  </div>
+         <div style="padding-top:50px;" id="page-wrapper" style="min-height: 316px;"  > @yield('content')  </div>
          <div id="fff"> 0 </div>
         
         <!-- /#page-wrapper -->
@@ -371,3 +371,5 @@
 </body>
 </html>
 
+<!--                 <button type="button" class="btn btn-info" onclick="LoadAjax('{{ csrf_token() }}','{{ route('admin.changepassword')}}','post','p1','p2','p3','p4','#page-wrapper','#ll')" id="ll" > Click </button>
+ -->

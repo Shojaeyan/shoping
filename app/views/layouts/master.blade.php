@@ -45,8 +45,8 @@
                   <span class="caret"></span>
                 </a>
                 <ul aria-labelledby="drop3" id="user-menu" role="menu" class="dropdown-menu">
-                  <li role="presentation"><a href="{{route('user.changepassword') }}" role="menuitem"> {{ Lang::get('general.update') }} {{ Lang::get('general.password') }}</a></li>
-                  <li role="presentation"><a href="{{route('user.update') }}" role="menuitem"> {{ Lang::get('general.update') }} {{ Lang::get('general.profile') }}</a></li>
+                  <li role="presentation"><a href="{{route('user.changepassword', array('user')) }}" role="menuitem"> {{ Lang::get('general.update') }} {{ Lang::get('general.password') }}</a></li>
+                  <li role="presentation"><a href="{{route('user.update', array('user')) }}" role="menuitem"> {{ Lang::get('general.update') }} {{ Lang::get('general.profile') }}</a></li>
                   <li class="divider" role="presentation"></li>
                   <li role="presentation"><a href="{{ route('user.logout') }}" role="menuitem">{{ Lang::get('general.logout') }}</a></li>
                 </ul>
@@ -74,7 +74,7 @@
     {{ HTML::script('js/bootstrap.js') }}
     {{ HTML::script('js/bootstrap-tooltip.js') }}
     {{ HTML::script('js/app.js') }}
-    {{ HTML::script('js/animate.js') }}
+
 
 </body>
 </html>

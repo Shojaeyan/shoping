@@ -25,6 +25,7 @@
     {{ HTML::script('js/html5shiv.min.js')}}
     {{ HTML::script('js/respond.min.js') }}
     <![endif]-->
+    {{ HTML::script('js/jquery-1.10.2.min.js') }}
     <title>
         @section('title')
        {{ Config::get('app.sitename') }}
@@ -246,8 +247,8 @@
                   <span class="caret"></span>
                 </a>
                 <ul aria-labelledby="drop3" id="user-menu" role="menu" class="dropdown-menu">
-                  <li role="presentation"><a href="{{route('admin.changepassword') }}" role="menuitem"><i class="fa fa-gear fa-fw"></i> {{ Lang::get('general.update') }} {{ Lang::get('general.password') }}</a></li>
-                  <li role="presentation"><a href="{{route('admin.update') }}" role="menuitem"><i class="fa fa-user fa-fw"></i> {{ Lang::get('general.update') }} {{ Lang::get('general.profile') }}</a></li>
+                  <li role="presentation"><a href="{{route('admin.changepassword', array('admin')) }}" role="menuitem"><i class="fa fa-gear fa-fw"></i> {{ Lang::get('general.update') }} {{ Lang::get('general.password') }}</a></li>
+                  <li role="presentation"><a href="{{route('admin.update', array('admin')) }}" role="menuitem"><i class="fa fa-user fa-fw"></i> {{ Lang::get('general.update') }} {{ Lang::get('general.profile') }}</a></li>
                   <li class="divider" role="presentation"></li>
                   <li role="presentation"><a href="{{ route('user.logout') }}" role="menuitem"><i class="fa fa-sign-out fa-fw"></i> {{ Lang::get('general.logout') }}</a></li>
                 </ul>
@@ -274,6 +275,9 @@
                         <li>
                             <a href=" {{ route('admin.dashboard') }} " class="active"><i class='fa fa-dashboard fa-fw'></i> {{ Lang::get('general.dashboard') }} </a>                        </li>
                         <li>
+                        <li>
+                            <a href=" {{ route('admin.users') }} " class="active"><i class='fa fa-user fa-fw'></i> {{ Lang::get('general.users') }} </a>                        </li>
+                        <li>                            
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> {{ Lang::get('general.setting') }} <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
@@ -335,7 +339,7 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-         <div style="padding-top:50px;" id="page-wrapper" style="min-height: 316px;"  > @yield('content')  </div>
+         <div style="padding-top:1px;" id="page-wrapper" style="min-height: 316px;"  > @yield('content')  </div>
          <div id="fff"> 0 </div>
         
         <!-- /#page-wrapper -->
@@ -351,16 +355,19 @@
 }
 </style>
 
-    {{ HTML::script('js/jquery-1.10.2.min.js') }}
     {{ HTML::script('js/bootstrap.js') }}
     {{ HTML::script('js/bootstrap-tooltip.js') }}
     {{ HTML::script('js/app.js') }}
+    {{ HTML::script('js/app.js') }}
     {{ HTML::script('js/animate.js') }}
+    {{ HTML::script('js/jquery.easing.1.3.js') }}
     <!-- Metis Menu Plugin JavaScript -->
     {{ HTML::script('js/plugins/metisMenu/metisMenu.min.js') }}
     <!-- Morris Charts JavaScript -->
     <!-- Custom Theme JavaScript -->
     {{ HTML::script('js/sb-admin-2.js') }}
+    {{ HTML::script('js/bootstrap-dialog.min.js') }}
+    {{ HTML::style('css/bootstrap-dialog.min.css') }}
 
 </body>
 

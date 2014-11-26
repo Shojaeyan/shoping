@@ -23,7 +23,7 @@ return array(
 	"error" => "Error",
 	"loout" => "Logput",
 	"welcome" => "Welcome",
-	"" => "",
+	"users" => "کاربران",
 	"" => "",
 	"" => "",
 	"" => "",

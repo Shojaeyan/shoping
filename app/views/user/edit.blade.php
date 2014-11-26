@@ -5,7 +5,7 @@
 	@stop
 	@section("content")
 		<div class="page-header" style="border-color:#555">
-				<h1><span aria-hidden="true" class="glyphicon glyphicon-record"></span> {{Lang::get('general.update')}}</h1>
+				<h1><span aria-hidden="true" class="glyphicon glyphicon-record"></span> {{Lang::get('general.update')}} {{ Lang::get('general.profile') }}</h1>
 			</div>
 			<ol class="breadcrumb">
 			<li><a href="#" data-toggle="tooltip" title=" {{ Lang::get('messages.dateUpdate') }} / {{ Lang::get('messages.dateFa') }}">

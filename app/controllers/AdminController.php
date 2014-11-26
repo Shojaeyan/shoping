@@ -6,7 +6,8 @@ class AdminController extends BaseController {
 	
 	public function showDashboard()
 	{
-		return View::make('admin.dashboard');
+		$count = User::count();
+		return View::make('admin.dashboard')->with('usersCount',$count);
 
 	}
 
@@ -19,5 +20,18 @@ class AdminController extends BaseController {
 	{
 		$this->layout->content = View::make('user.changepassword')->with('action','admin');
 	}
+
+	public function showUsers($value='')
+	{
+		$allUsers = User::paginate(5);
+		return View::make('admin.users')->with('allUsers',$allUsers);
+	}
+
+	public function deleteUser($id)
+	{
+		# code...
+		return $id;
+	}
+
 
 }

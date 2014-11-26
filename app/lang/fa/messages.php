@@ -16,5 +16,8 @@ return array(
 	"loginTime" => "مدت زمان Session شما به پایان رسیده است",
 	"success" => "عملیات با موفقیت انجام شد.",
 	"enteroldpassword" => "کلمه عبور فعلی را وارد کنید ...",
-	"oldpasswordfailed" => "کلمه عبور فعلی درست نمی باشد  ."
+	"oldpasswordfailed" => "کلمه عبور فعلی درست نمی باشد  .",
+	"usersCount" => "تعداد کاربران سایت",
+	"viewDetails" => "مشاهده جزییات",
+	"deleteQuestion" => "آیا تمایل به حذف دارید ؟",
 	);

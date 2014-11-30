@@ -16,7 +16,6 @@ return array(
 	'debug' => true,
 	'sitename' => 'Myproject',
 
-
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL
@@ -123,6 +122,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+		'Authority\AuthorityL4\AuthorityL4ServiceProvider',
 
 	),
 
@@ -190,6 +190,7 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
+		'Authority'			=> 'Authority\AuthorityL4\Facades\Authority',
 
 	),
 

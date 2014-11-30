@@ -9,6 +9,29 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
+	public function roles()
+    {
+        return $this->belongsToMany('Role');
+    }
+
+    public function permissions()
+    {
+        return $this->hasMany('Permission');
+    }
+
+    public function hasRole($key)
+    {
+        $hasRole = false;
+        foreach ($this->roles as $role) {
+            if ($role->name === $key) {
+                $hasRole = true;
+                break;
+            }
+        }
+
+        return $hasRole;
+    }
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -22,5 +45,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	protected $hidden = array('password', 'remember_token');
+	// public function roles()
+	// {
+	// 	# code...
+	// 	return $this->belongsToMany('Role' , 'user_roles')->withPivot('id');
+
+	// }
+
+
 
 }

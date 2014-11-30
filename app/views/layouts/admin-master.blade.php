@@ -339,9 +339,10 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-         <div style="padding-top:1px;" id="page-wrapper" style="min-height: 316px;"  > @yield('content')  </div>
-         <div id="fff"> 0 </div>
-        
+         <div style="padding-top:1px;" id="page-wrapper" style="min-height: 316px;"  > 
+          {{ Helper::doMessage(); }}
+            @yield('content')  
+        </div>        
         <!-- /#page-wrapper -->
 
     </div>

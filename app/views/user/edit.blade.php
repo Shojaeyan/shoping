@@ -22,13 +22,7 @@
 				   @endforeach
 				  </ul>
 				@endif  
-				  <!-- Show Error with Session Error -->
-				  @if (Session::has('flash_error'))
-	        		<div id="flash_error" class="alert alert-danger" role="alert">{{ Session::get('flash_error') }}</div>
-	   			  @endif
-				  @if (Session::has('flash_success'))
-	        		<div id="flash_success" class="alert alert-success" role="alert">{{ Session::get('flash_success') }}</div>
-	   			  @endif	   			  
+	   			  
 			</div>  
 			<div class="form-group">
 				{{ Form::label('name',Lang::get('general.name')) }}

@@ -9,6 +9,7 @@
     <!-- CSS FILES -->
     {{ HTML::style('css/bootstrap.min.css') }}
     {{ HTML::style('css/bootstrap-rtl.css') }}
+    {{ HTML::style('css/fhmm.css') }}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -63,8 +64,73 @@
 </nav>
 <!-- End top Navbar -->
 
-    <div class="container">
+<!-- Menu -->
+<div class="container">
+  <nav role="navigation" class="navbar navbar-default fhmm">
+    <div class="navbar-header">
+    <button class="navbar-toggle" data-target="#defaultmenu" data-toggle="collapse" type="button"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#"><i class="fa fa-home"></i></a>
+    </div><!-- end navbar-header -->
+        <div class="navbar-collapse collapse" id="defaultmenu">
+            <ul class="nav navbar-nav">
+<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Flyout <b class="caret"></b></a>
+                        <ul role="menu" class="dropdown-menu">
+              <li><a href="#">ThemeForest</a></li>
+              <li><a href="#">GraphicRiver</a></li>
+              <li><a href="#">PhotoDune</a></li>
+                            <li class="dropdown-submenu">
+                                <a href="#">Envato Sites</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu"><a href="#">Tuts+</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">PSD Tuts</a></li>
+                      <li><a href="#">CODE Tuts</a></li>
+                    </ul>
+                  </li><!-- end dropdown-submenu -->
+                  <li><a href="#">We are Envato</a></li>
+                  <li><a href="#">Support Center</a></li>
+                </ul><!-- end dropdown-menu -->
+                            </li><!-- end dropdown-submenu -->
+              <li><a href="#">Creattica</a></li>
+              <li><a href="#">Microlancer</a></li>
+              <li><a href="#">ActiveDen</a></li>
+                        </ul><!-- end dropdown-menu -->
+          </li>
 
+
+
+
+
+
+
+              
+                <!-- grid view -->
+                <li class="dropdown fhmm-fw"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Grid <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <!-- grid view -->
+                      <li class="dropdown-submenu fhmm-fw"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Grid <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li class="grid-demo">
+                            <div class="row">
+                              <div class="col-sm-2">.col-sm-2</div>
+                              <div class="col-sm-2">.col-sm-2</div>
+                              <div class="col-sm-2">.col-sm-2</div>
+                              <div class="col-sm-2">.col-sm-2</div>
+                              <div class="col-sm-2">.col-sm-2</div>
+                              <div class="col-sm-2">.col-sm-2</div>
+                            </div>  
+                          </li><!-- grid demo -->
+                        </ul><!-- end dropdown-menu -->
+                      </li><!-- end dropdown fhmm-fw -->
+                  </ul><!-- end nav navbar-nav -->
+                </li><!-- end dropdown fhmm-fw -->
+            </ul><!-- end nav navbar-nav -->
+        </div><!-- end #navbar-collapse-1 -->
+      </nav>
+</div>      
+<!-- End Menu -->
+
+    <div class="container">
+        {{ Helper::doMessage(); }}
         @yield('content') 
 
     </div>
@@ -73,6 +139,7 @@
     {{ HTML::script('js/jquery-1.10.2.min.js') }}
     {{ HTML::script('js/bootstrap.js') }}
     {{ HTML::script('js/bootstrap-tooltip.js') }}
+    {{ HTML::script('js/fitdivs.js') }}
     {{ HTML::script('js/app.js') }}
 
 

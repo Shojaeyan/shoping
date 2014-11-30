@@ -16,15 +16,7 @@
 			   <li>{{ $error }}</li>
 			   @endforeach
 			  </ul>
-			@endif  
-			  <!-- Show Error with Session Error -->
-			  @if (Session::has('flash_error'))
-        		<div  class="alert alert-danger" role="alert" id="flash_error">{{ Session::get('flash_error') }}</div>
-   			  @endif
-
-			@if (Session::has('flash_success'))
-        		<div  class="alert alert-success" role="alert"> {{ Session::get('flash_success') }}</div>
-   			  @endif   			  
+			@endif 			  
 		</div>  
 
 		<div class="form-group">

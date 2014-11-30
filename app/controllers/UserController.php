@@ -4,17 +4,14 @@ class UserController extends BaseController {
 
 	public function showUpdate()
 	{
-		if(Auth::check())
-		{
-			return View::make('user.edit')->width('action','user');
-		}else{
-			return Redirect::to("user/login")->with("flash_error",Lang::get('messages.loginText'));
-		}
+		return Redirect::to("user/login")->with("flash_error",Lang::get('messages.loginText'));
 	}
 	
 
 	public function showPassword($value='')
 	{
+		//if (Authority::cannot('create', 'album')) {
+		      // App::abort('403', 'Sorry! Not authorized');
 		return View::make('user.changepassword')->with('action','user');
 	}
 
@@ -27,6 +24,7 @@ class UserController extends BaseController {
  	   } 
  	   return View::make("user.login");
 	}
+
 	public function showRegister(){
 
 		return View::make("user.register");
@@ -65,16 +63,18 @@ class UserController extends BaseController {
 					$user->name = $name;
 					$user->family = $family;
 					$user->email = $email;
-					$user->password= $password;
-
+					$user->password = $password;
+					$user->role = 2 ;	
 					if($user->save())
 						{
+							$role_pending = Role::where('name', '=', 'admin')->first();
+        					$user->roles()->attach($role_pending);
 							$userlogin = array(
 							    'email' => $user->email,
 							    'password' => $repassword
 							);
 							if (Auth::attempt($userlogin)) {
-							    return Redirect::to('/');
+							    return Redirect::to('/')->with('flash_success',trans('messages.regsuccess'));
 							}
 							else
 							return Redirect::to('user/login')->with('flash_success',' Yeh !! Succes ... ');
@@ -107,7 +107,11 @@ class UserController extends BaseController {
 		{
 		if(Auth::attempt($values))
 			{
-			return Redirect::to('/');
+				if(Auth::user()->hasRole('admin'))
+				return Redirect::to('/admin/dashboard')->with('flash_success',trans('messages.loginsuccess'));
+				else
+				return Redirect::to('/')->with('flash_success',trans('messages.loginsuccess'));
+			
 			}else return Redirect::to('user/login')->with('flash_error', 'LoginFailed...');
 
 		}else{

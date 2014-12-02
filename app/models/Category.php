@@ -7,6 +7,6 @@ class Category extends Eloquent
 {
 	protected $fillable = array('name','parent');
 
-	public static  $rules = array('name' => 'required|min:2');
+	public static  $rules = array('name' => 'required|min:2' ,'parent' => 'min:1');
 
 }

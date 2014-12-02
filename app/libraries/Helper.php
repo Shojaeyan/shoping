@@ -25,6 +25,7 @@ class Helper {
       		<button data-dismiss='alert' class='close' type='button'><span aria-hidden='true'>×</span><span class='sr-only'>Close</span></button>
       		<strong>".Session::get('flash_warning')."</div>";
 		}		
+    
 		return $message;
 
     }

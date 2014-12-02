@@ -42,7 +42,7 @@ return array(
 	"setting" => "تنظیمات",
 	"dateRegister" =>"تاریخ ثبت",
 	"dateUpdate" => "تاریخ ویرایش",
-	"" => "",
+	"categories" => "دسته ها",
 	"" => "",
 	"" => "",
 	"" => "",

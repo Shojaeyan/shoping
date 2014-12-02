@@ -36,7 +36,7 @@ class AdminController extends BaseController {
 
 	public function showUsers($value='')
 	{
-		$allUsers = User::where('del' ,'=','0')->paginate(5);
+		$allUsers = User::where('del' ,'=','0')->paginate(1);
 		return View::make('admin.users')->with('allUsers',$allUsers);
 	}
 

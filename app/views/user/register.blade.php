@@ -7,21 +7,7 @@
 	<div class="page-header" style="border-color:#555">
 			<h1><span aria-hidden="true" class="glyphicon glyphicon-record"></span> {{Lang::get('general.register')}}</h1>
 		</div>
-	{{ Form::open(array('url'=>'user/register', 'class'=>'form-signin')) }}
-		<div class="form-group">
-			@if(count($errors)>0)
-			<ul class="alert alert-danger" role="alert">
-				<!-- SHow Error With Validation -->
-			   @foreach($errors->all() as $error)
-			   <li>{{ $error }}</li>
-			   @endforeach
-			  </ul>
-			@endif  
-			  <!-- Show Error with Session Error -->
-			  @if (Session::has('flash_error'))
-        		<div id="flash_error" class="alert alert-danger" role="alert">{{ Session::get('flash_error') }}</div>
-   			  @endif
-		</div>  
+		{{ Form::open(array('url'=>'user/register', 'class'=>'form-signin')) }} 
 		<div class="form-group">
 			{{ Form::label('name',Lang::get('general.name')) }}
 			{{ Form::text('name', Input::old('name'), array('placeholder' => Lang::get('general.entername'),'class' => 'form-control')) }}

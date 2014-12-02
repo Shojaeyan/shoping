@@ -339,7 +339,17 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-         <div style="padding-top:1px;" id="page-wrapper" style="min-height: 316px;"  > 
+         <div style="padding-top:10px;" id="page-wrapper" style="min-height: 316px;"  >
+            <div class="form-group">
+              @if(count($errors)>0)
+              <ul class="alert alert-danger" role="alert">
+                <!-- SHow Error With Validation -->
+                 @foreach($errors->all() as $error)
+                 <li>{{ $error }}</li>
+                 @endforeach
+                </ul>
+              @endif  
+            </div>                  
           {{ Helper::doMessage(); }}
             @yield('content')  
         </div>        

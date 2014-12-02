@@ -8,8 +8,9 @@ class CategoriesController extends BaseController {
 
 	public function getIndex()
 	{
+		$categories = Category::where('del' ,'=','0')->paginate(1);
 		return View::make('admin.categories')
-			->with('categories',Category::all());
+			->with('categories',$categories);
 	}
 
 	public function postCreate()
@@ -19,6 +20,7 @@ class CategoriesController extends BaseController {
 		if($validator->passes()){
 			$category = new Category;
 			$category->name =Input::get('name');
+			$category->parent = Input::get('parent');
 			$category->save();
 
 			return Redirect::to('admin/categories')
@@ -26,10 +28,14 @@ class CategoriesController extends BaseController {
 		}
 
 		return Redirect::to('admin/categories')
-			->with('flash_error','Error')
 			->withErrors($validator)
 			->withInput();
 	}	
+
+	public function postEdit($id){
+		$cat = Category::find($id);
+		return View::make('admin.categories')->with('cat',$cat);
+	}
 
 	public function postDelete(){
 		$category = Category::find(Input::get('id'));

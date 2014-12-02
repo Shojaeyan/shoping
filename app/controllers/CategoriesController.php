@@ -6,7 +6,7 @@ class CategoriesController extends BaseController {
 		$this->beforeFilter('csrf',array('on' => 'post'));
 	}
 
-	public function showCategories()
+	public function getIndex()
 	{
 		return View::make('admin.categories')
 			->with('categories',Category::all());
@@ -14,9 +14,9 @@ class CategoriesController extends BaseController {
 
 	public function postCreate()
 	{
-		$validator = Vallidator::make(Input::all(),Category::$rules);
+		$validator = Validator::make(Input::all(),Category::$rules);
 
-		if($validator->passses()){
+		if($validator->passes()){
 			$category = new Category;
 			$category->name =Input::get('name');
 			$category->save();
@@ -31,12 +31,13 @@ class CategoriesController extends BaseController {
 			->withInput();
 	}	
 
-	public function postCreate(){
+	public function postDelete(){
 		$category = Category::find(Input::get('id'));
 
 		if($category){
 			$category->delete();
-			return 'sss';
+			return Redirect::to('admin/categories')
+			->with('flash_success','Done');
 		}
 
 	}

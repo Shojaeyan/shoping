@@ -23,6 +23,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('{action}/update', array('as' => 'admin.update', 'uses' => 'BaseController@doUpdate' ,'before' => 'csrf' , 'before' => 'auth'));	
 	Route::get('admin/user/delete/{id}',array('as' => 'admin.user.delete', 'uses' => 'AdminController@deleteUser','before' => 'csrf','before' => 'auth'))->where('id', '[0-9]+'); 			
 	Route::get('admin/users',array('as' => 'admin.users', 'uses' => 'AdminController@showUsers','before' => 'csrf','before' => 'auth'));
+	Route::controller('admin/categories' ,'CategoriesController');
 });
 
 Route::get('/', function()

@@ -9,9 +9,4 @@ class Category extends Eloquent
 
 	public static  $rules = array('name' => 'required|min:2');
 
-
-	function __construct()
-	{
-		# code...
-	}
 }
